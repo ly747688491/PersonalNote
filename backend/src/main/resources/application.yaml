@@ -1,0 +1,18 @@
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/**/*.xml
+#                   classpath:mapper/**/*.xml
+  type-aliases-package: com.personalnote.mapper
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url:  jdbc:mysql://localhost:3306/personalnote?characterEncoding=utf-8
+    username: admin
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+
+
+server:
+  port: 8080
