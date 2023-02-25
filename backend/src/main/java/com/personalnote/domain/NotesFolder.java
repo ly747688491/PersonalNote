@@ -5,14 +5,16 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * @TableName tag
+ * @TableName notes_folder
  */
-@TableName(value ="tag")
+@TableName(value ="notes_folder")
 @Data
-public class Tag implements Serializable {
+public class NotesFolder implements Serializable {
     private Long id;
 
-    private String tagName;
+    private Long noteId;
+
+    private Long folderId;
 
     private static final long serialVersionUID = 1L;
 }

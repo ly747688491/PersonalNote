@@ -1,53 +1,29 @@
 package com.personalnote.domain;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
+import java.util.Date;
 import lombok.Data;
 
-import java.io.Serializable;
-import java.sql.Date;
-
 /**
- * 评论回复表
+ * @TableName comment_reply
  */
+@TableName(value ="comment_reply")
 @Data
 public class CommentReply implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * 评论id
-     */
-    @TableId(type = IdType.AUTO)
     private Long id;
 
-    /**
-     * 用户id
-     */
     private Long userId;
 
-    /**
-     * 被回复id
-     */
     private Long replyId;
 
-    /**
-     * 回复内容
-     */
     private String content;
 
-    /**
-     * 审核状态‘0’待审核‘1‘审核通过’2‘审核不通过
-     */
-    private String state;
+    private Integer state;
 
-    /**
-     * 点赞数
-     */
-    private String starNum;
+    private Integer starNum;
 
-    /**
-     * 回复时间
-     */
     private Date createTime;
 
+    private static final long serialVersionUID = 1L;
 }

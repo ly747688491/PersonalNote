@@ -1,8 +1,7 @@
 package com.personalnote.service;
 
-import com.personalnote.domain.User;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.personalnote.result.Result;
+import com.personalnote.domain.User;
 
 /**
 * @author LY
@@ -11,7 +10,5 @@ import com.personalnote.result.Result;
 */
 public interface UserService extends IService<User> {
 
-
      boolean login(String username, String password);
-     public void register(User user);
 }

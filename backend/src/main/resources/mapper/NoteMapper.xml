@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.personalnote.mapper.NoteMapper">
+
+    <resultMap id="BaseResultMap" type="com.personalnote.domain.Note">
+            <id property="noteId" column="note_id" jdbcType="BIGINT"/>
+            <result property="userId" column="user_id" jdbcType="BIGINT"/>
+            <result property="noteTitle" column="note_title" jdbcType="VARCHAR"/>
+            <result property="note" column="note" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="browseNum" column="browse_num" jdbcType="INTEGER"/>
+            <result property="collectNum" column="collect_num" jdbcType="INTEGER"/>
+            <result property="starNum" column="star_num" jdbcType="INTEGER"/>
+            <result property="commentNum" column="comment_num" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        note_id,user_id,note_title,
+        note,create_time,update_time,
+        browse_num,collect_num,star_num,
+        comment_num
+    </sql>
+</mapper>

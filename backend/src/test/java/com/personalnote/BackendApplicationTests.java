@@ -2,7 +2,6 @@ package com.personalnote;
 
 import com.personalnote.controller.LoginController;
 import com.personalnote.controller.RegisterController;
-import com.personalnote.domain.User;
 import com.personalnote.mapper.UserMapper;
 import com.personalnote.result.Result;
 import org.junit.jupiter.api.Test;

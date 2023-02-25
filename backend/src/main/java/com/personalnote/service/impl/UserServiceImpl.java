@@ -1,10 +1,8 @@
 package com.personalnote.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.personalnote.domain.User;
-import com.personalnote.result.Result;
 import com.personalnote.service.UserService;
 import com.personalnote.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +25,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         wrapper.eq("password", password);
         return this.count(wrapper) > 0;
     }
-
-    @Override
-    public void register(User user) {
-        userMapper.insert(user);
-    }
-
 
 }
 

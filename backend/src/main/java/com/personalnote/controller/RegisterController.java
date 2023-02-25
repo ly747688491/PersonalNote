@@ -1,6 +1,5 @@
 package com.personalnote.controller;
 
-import com.personalnote.domain.User;
 import com.personalnote.result.Result;
 import com.personalnote.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
