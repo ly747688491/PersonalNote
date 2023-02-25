@@ -25,6 +25,26 @@ const routes = [
         name: '404',
         component: () => import('../views/404View.vue')
     },
+    {
+        path: '/recentedits',
+        name: 'recentedits',
+        component: () => import('../views/RecentEditsView.vue')
+    },
+    {
+        path: '/recyclebin',
+        name: 'recyclebin',
+        component: () => import('../views/RecycleBinView.vue')
+    },
+    {
+        path: '/home',
+        name: 'home',
+        component: () => import('../views/HomeView.vue')
+    },
+    {
+        path: '/edit',
+        name: 'edit',
+        component: () => import('../views/EditView.vue')
+    },
 ]
 
 const router = new VueRouter({

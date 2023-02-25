@@ -1,27 +1,30 @@
 <template>
     <div class="SideMenu">
-        <el-row>
+        <div>
+            <el-row>
             <el-col :span="6"><div class="grid-content bg-purple">
-                <el-avatar 
-                :size="30" 
-                src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-                ></el-avatar>
-            </div></el-col>
-            <el-col :span="18"><div class="grid-content bg-purple">
-                <p class="username" @click="toUserSettings">{{ username }}</p>
-            </div></el-col>
-        </el-row>
-        <el-row :gutter="20">
-            <el-col :span="18"><div class="grid-content bg-purple">
-                <el-input
-                    placeholder="请输入内容"
-                    prefix-icon="el-icon-search"
-                    v-model="search"
-                    class="search">
-                </el-input>
-            </div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-        </el-row>
+                    <el-avatar 
+                    :size="30" 
+                    src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+                    ></el-avatar>
+                </div></el-col>
+                <el-col :span="18"><div class="grid-content bg-purple">
+                    <p class="username" @click="toUserSettings">{{ username }}</p>
+                </div></el-col>
+            </el-row>
+            <el-row :gutter="20">
+                <el-col :span="18"><div class="grid-content bg-purple">
+                    <el-input
+                        placeholder="请输入内容"
+                        prefix-icon="el-icon-search"
+                        v-model="search"
+                        class="search">
+                    </el-input>
+                </div></el-col>
+                <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+            </el-row>
+        </div>
+        <el-divider></el-divider>
         <el-menu
         default-active="1"
         class="el-menu-vertical-demo">
@@ -48,7 +51,7 @@
             <i class="iconfont icon-biji"></i>
             <span slot="title">精选文章</span>
         </el-menu-item>
-        </el-menu>      
+        </el-menu>
     </div>
   </template>
   
@@ -89,5 +92,4 @@
     margin-bottom: 10px;
     margin-top: 10px;
 }
-
 </style>

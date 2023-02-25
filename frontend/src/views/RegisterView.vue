@@ -82,7 +82,7 @@
     methods: {
       returnForm() {
         // 返回login界面
-        this.$router.push('/login')
+        this.$router.push('/')
       },
       submitForm() {
         console.log(this.item)

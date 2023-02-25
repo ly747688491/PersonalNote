@@ -18,6 +18,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     implements UserService{
+    @Autowired
+    private UserMapper userMapper;
     @Override
     public boolean login(String username, String password) {
         QueryWrapper<User> wrapper = new QueryWrapper<>();
@@ -25,6 +27,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         wrapper.eq("password", password);
         return this.count(wrapper) > 0;
     }
+
+    @Override
+    public void register(User user) {
+        userMapper.insert(user);
+    }
+
+
 }
 
 

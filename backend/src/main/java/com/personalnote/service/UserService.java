@@ -13,4 +13,5 @@ public interface UserService extends IService<User> {
 
 
      boolean login(String username, String password);
+     public void register(User user);
 }

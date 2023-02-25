@@ -5,7 +5,12 @@ package com.personalnote.domain;
  * @date 2023/2/18 16:54
  * @description User
  */
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -21,6 +26,7 @@ public class User implements Serializable {
     /**
      * 主键
      */
+    @TableId(type = IdType.AUTO)
     private String id;
 
     /**

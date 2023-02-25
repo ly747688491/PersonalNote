@@ -1,6 +1,7 @@
 package com.personalnote;
 
 import com.personalnote.controller.LoginController;
+import com.personalnote.controller.RegisterController;
 import com.personalnote.domain.User;
 import com.personalnote.mapper.UserMapper;
 import com.personalnote.result.Result;
@@ -17,11 +18,22 @@ class BackendApplicationTests {
     @Autowired
     private LoginController loginControl;
     @Autowired
+    private RegisterController registerController;
+    @Autowired
     private UserMapper userMapper;
     @Test
     public void login() {
         Map<String, Object> stringObjectMap = userMapper.selectMapById(1L);
 
+    }
+    @Test
+    public void register() {
+        User user = new User();
+        user.setUsername("qwertyuiop");
+        user.setPassword("1234567899876");
+        user.setPhone("13898163065");
+        Result<String> register = registerController.register(user);
+        System.out.println(register);
     }
 
 }

@@ -16,6 +16,9 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
+
+Vue.prototype.baseURL = "http://127.0.0.1:8080/api";
+
 new Vue({
     axios,
   router,

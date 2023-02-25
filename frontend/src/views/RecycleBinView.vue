@@ -1,15 +1,15 @@
 <template>
   <div class="home">
     <el-container>
-        <el-aside width="300px" style="overflow-x: hidden;">
-                <SideMenu/>
+        <el-aside width="200px">
+            <SideMenu/>
         </el-aside>
         <el-container>
             <el-header>
-                <header-component></header-component>
+
             </el-header>
             <el-main>
-                <document-table></document-table>
+
             </el-main>
         </el-container>
     </el-container>
@@ -18,17 +18,13 @@
 
 <script>
 import SideMenu from '@/components/SideMenu.vue';
-import HeaderComponent from '@/components/HeaderComponent.vue';
-import DocumentTable from '@/components/DocumentTable.vue';
 
 
 
 export default {
   name: 'HomeView',
   components: {
-    SideMenu,
-    HeaderComponent,
-    DocumentTable
+    SideMenu
 }
 }
 </script>
@@ -42,7 +38,7 @@ export default {
     line-height: 100px;
     height: 100px;
   }
-
+  
   .el-aside {
     height: 100vh;
   }
