@@ -1,5 +1,6 @@
 package com.personalnote.controller;
 
+import com.personalnote.domain.User;
 import com.personalnote.result.Result;
 import com.personalnote.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,19 @@ public class RegisterController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/register")
-    public Result<String> register(@RequestBody User user) {
-        userService.register(user);
-        return Result.success("注册成功");
+    @PostMapping("/signup")
+    public Result<String> signup(@RequestBody User user) {
+        String msg = userService.signup(user);
+        if (msg != null) {
+            if (msg.equals("注册成功，请返回登录界面")) {
+                return Result.success(msg);
+            }
+            else {
+                return Result.error(msg);
+            }
+        }
+        else {
+            return Result.error("发生了未知错误，请退出重试");
+        }
     }
 }

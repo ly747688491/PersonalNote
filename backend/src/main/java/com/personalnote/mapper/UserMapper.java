@@ -2,6 +2,7 @@ package com.personalnote.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.personalnote.domain.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Repository;
 * @createDate 2023-02-18 16:42:14
 * @Entity com.personalnote.domain.User
 */
+@Repository
+@Mapper
 public interface UserMapper extends BaseMapper<User> {
 
 

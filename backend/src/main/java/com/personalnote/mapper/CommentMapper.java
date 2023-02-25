@@ -2,6 +2,7 @@ package com.personalnote.mapper;
 
 import com.personalnote.domain.Comment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Repository;
 
 /**
 * @author LY
@@ -9,6 +10,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @createDate 2023-02-25 18:13:20
 * @Entity com.personalnote.domain.Comment
 */
+@Repository
 public interface CommentMapper extends BaseMapper<Comment> {
 
 }

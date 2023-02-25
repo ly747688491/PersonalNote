@@ -26,6 +26,24 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         return this.count(wrapper) > 0;
     }
 
+    @Override
+    public String signup(User user) {
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.eq("username",user.getUsername());
+        if (this.count(wrapper) > 0){
+            return "该用户已存在";
+        }
+        else if ("".equals(user.getUsername()) || "".equals(user.getPassword())){
+            return "用户名或密码为空";
+        }
+        else if (userMapper.insert(user) == 1){
+            return "注册成功，请返回登录界面";
+        }
+        else {
+            return "发生了未知错误，请退出重试";
+        }
+
+    }
 }
 
 

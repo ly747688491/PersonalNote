@@ -1,12 +1,12 @@
 package com.personalnote.result;
 
 public class Result<T> {
-    private boolean success;
+    private boolean code;
     private T data;
     private String errorMessage;
 
-    private Result(boolean success, T data, String errorMessage) {
-        this.success = success;
+    private Result(boolean code, T data, String errorMessage) {
+        this.code = code;
         this.data = data;
         this.errorMessage = errorMessage;
     }
@@ -20,7 +20,7 @@ public class Result<T> {
     }
 
     public boolean isSuccess() {
-        return success;
+        return code;
     }
 
     public T getData() {

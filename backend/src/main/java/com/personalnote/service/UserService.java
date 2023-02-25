@@ -11,4 +11,8 @@ import com.personalnote.domain.User;
 public interface UserService extends IService<User> {
 
      boolean login(String username, String password);
+
+     public String signup(User user);
+
+
 }

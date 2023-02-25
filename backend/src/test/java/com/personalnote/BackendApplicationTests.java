@@ -2,6 +2,7 @@ package com.personalnote;
 
 import com.personalnote.controller.LoginController;
 import com.personalnote.controller.RegisterController;
+import com.personalnote.domain.User;
 import com.personalnote.mapper.UserMapper;
 import com.personalnote.result.Result;
 import org.junit.jupiter.api.Test;
@@ -13,26 +14,15 @@ import java.util.Map;
 @SpringBootTest
 class BackendApplicationTests {
 
-
     @Autowired
-    private LoginController loginControl;
-    @Autowired
-    private RegisterController registerController;
-    @Autowired
-    private UserMapper userMapper;
+    UserMapper userMapper;
     @Test
-    public void login() {
-        Map<String, Object> stringObjectMap = userMapper.selectMapById(1L);
+    public void testInsert(){
+        User user = new User("test2", "987654321","男","13898163065");
+        int result = userMapper.insert(user);
+        System.out.println("受影响行数："+result);
+        System.out.println("id自动获取："+user.getId());
+    }
 
-    }
-    @Test
-    public void register() {
-        User user = new User();
-        user.setUsername("qwertyuiop");
-        user.setPassword("1234567899876");
-        user.setPhone("13898163065");
-        Result<String> register = registerController.register(user);
-        System.out.println(register);
-    }
 
 }
