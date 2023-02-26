@@ -2,6 +2,7 @@ package com.personalnote.service;
 
 import com.personalnote.domain.Folder;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.personalnote.result.ErrorCodeEnum;
 
 /**
 * @author LY
@@ -10,4 +11,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface FolderService extends IService<Folder> {
 
+    ErrorCodeEnum addFolder(Folder folder);
 }

@@ -4,4 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.personalnote.mapper.NoteMapper">
 
+    <resultMap id="BaseResultMap" type="com.personalnote.domain.Note">
+            <id property="noteId" column="note_id" jdbcType="BIGINT"/>
+            <result property="userId" column="user_id" jdbcType="BIGINT"/>
+            <result property="noteTitle" column="note_title" jdbcType="VARCHAR"/>
+            <result property="noteText" column="note_text" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="browseNum" column="browse_num" jdbcType="INTEGER"/>
+            <result property="collectNum" column="collect_num" jdbcType="INTEGER"/>
+            <result property="starNum" column="star_num" jdbcType="INTEGER"/>
+            <result property="commentNum" column="comment_num" jdbcType="INTEGER"/>
+    </resultMap>
+
 </mapper>

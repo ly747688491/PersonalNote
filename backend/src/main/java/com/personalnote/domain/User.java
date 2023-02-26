@@ -1,8 +1,10 @@
 package com.personalnote.domain;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,6 +41,9 @@ public class User implements Serializable {
     private Integer isDeleted;
 
     private Long photo;
+
+    @TableField(exist = false)
+    private List<Folder> folders;
 
     private static final long serialVersionUID = 1L;
 

@@ -2,6 +2,7 @@ package com.personalnote.mapper;
 
 import com.personalnote.domain.Folder;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Repository;
 * @Entity com.personalnote.domain.Folder
 */
 @Repository
+@Mapper
 public interface FolderMapper extends BaseMapper<Folder> {
 
 }

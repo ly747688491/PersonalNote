@@ -2,11 +2,14 @@ package com.personalnote.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.personalnote.domain.Folder;
 import com.personalnote.domain.User;
+import com.personalnote.result.ErrorCodeEnum;
 import com.personalnote.service.UserService;
 import com.personalnote.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
 * @author LY
@@ -18,31 +21,43 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     implements UserService{
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private FolderServiceImpl folderService;
     @Override
-    public boolean login(String username, String password) {
+    public ErrorCodeEnum login(String username, String password) {
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         wrapper.eq("username", username);
         wrapper.eq("password", password);
-        return this.count(wrapper) > 0;
+        if(this.count(wrapper) > 0){
+            return ErrorCodeEnum.SUCCESS;
+        }
+        else if (this.count(wrapper) <=0) {
+            return ErrorCodeEnum.USER_ERROR_A0102;
+        }
+        else {
+            return ErrorCodeEnum.USER_ERROR_A9999;
+        }
     }
-
     @Override
-    public String signup(User user) {
+    @Transactional
+    public ErrorCodeEnum signup(User user) {
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         wrapper.eq("username",user.getUsername());
         if (this.count(wrapper) > 0){
-            return "该用户已存在";
+            return ErrorCodeEnum.USER_ERROR_A0100;
+//            A0100表示用户名已存在需要
         }
         else if ("".equals(user.getUsername()) || "".equals(user.getPassword())){
-            return "用户名或密码为空";
+            return ErrorCodeEnum.USER_ERROR_A0101;
+//            A0200表示用户名或密码为空
         }
-        else if (userMapper.insert(user) == 1){
-            return "注册成功，请返回登录界面";
+        try {
+            userMapper.insert(user);
+            folderService.addFolder(new Folder(user.getId(),"默认文件夹"));
+            return ErrorCodeEnum.SUCCESS;
+        }catch (Exception e) {
+            throw new RuntimeException();
         }
-        else {
-            return "发生了未知错误，请退出重试";
-        }
-
     }
 }
 

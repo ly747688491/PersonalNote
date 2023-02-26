@@ -4,4 +4,29 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.personalnote.mapper.FolderMapper">
 
+    <resultMap id="BaseResultMap" type="com.personalnote.domain.Folder">
+            <id property="folderId" column="folder_id" jdbcType="BIGINT"/>
+            <result property="userId" column="user_id" jdbcType="BIGINT"/>
+            <result property="folderName" column="folder_name" jdbcType="VARCHAR"/>
+        <collection property="notes" ofType="com.personalnote.domain.Note">
+            <id property="noteId" column="note_id" jdbcType="BIGINT"/>
+            <result property="userId" column="user_id" jdbcType="BIGINT"/>
+            <result property="noteTitle" column="note_title" jdbcType="VARCHAR"/>
+            <result property="noteText" column="note_text" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="browseNum" column="browse_num" jdbcType="INTEGER"/>
+            <result property="collectNum" column="collect_num" jdbcType="INTEGER"/>
+            <result property="starNum" column="star_num" jdbcType="INTEGER"/>
+            <result property="commentNum" column="comment_num" jdbcType="INTEGER"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectFoldersByUserId" resultMap="BaseResultMap">
+        select f.id, f.name, n.id as article_id, n.title, n.content, n.folder_id
+        from folder f
+                 left join note n on f.id = a.folder_id
+        where f.user_id = #{userId}
+    </select>
+
 </mapper>

@@ -2,6 +2,7 @@ package com.personalnote.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.personalnote.domain.User;
+import com.personalnote.result.ErrorCodeEnum;
 
 /**
 * @author LY
@@ -10,9 +11,9 @@ import com.personalnote.domain.User;
 */
 public interface UserService extends IService<User> {
 
-     boolean login(String username, String password);
+     ErrorCodeEnum login(String username, String password);
 
-     public String signup(User user);
+     ErrorCodeEnum signup(User user);
 
 
 }

@@ -1,5 +1,6 @@
 package com.personalnote.domain;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
@@ -15,9 +16,11 @@ public class Note implements Serializable {
 
     private Long userId;
 
+    private Long folderId;
+
     private String noteTitle;
 
-    private String note;
+    private String noteText;
 
     private Date createTime;
 
@@ -30,6 +33,8 @@ public class Note implements Serializable {
     private Integer starNum;
 
     private Integer commentNum;
+    @TableField(exist = false)
+    private Folder folder;
 
     private static final long serialVersionUID = 1L;
 }
